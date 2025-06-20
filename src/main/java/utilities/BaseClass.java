@@ -14,12 +14,15 @@ public class BaseClass {
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+			driver.manage().window().maximize();
 		} else if (browserName.equalsIgnoreCase("Firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+			driver.manage().window().maximize();
 		} else if (browserName.equalsIgnoreCase("safari")) {
 			WebDriverManager.safaridriver().setup();
 			driver = new SafariDriver();
+			driver.manage().window().maximize();
 		}
 
 		return driver;
