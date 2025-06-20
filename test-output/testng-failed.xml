@@ -6,7 +6,7 @@
       <class name="userRegistrationTests.RegisterNewUserAndVerifyUserByLoging">
         <methods>
           <include name="setupMethod"/>
-          <include name="registerAndVerifyNewUser"/>
+          <include name="registerAndVerifyNewUser" invocation-numbers="1"/>
         </methods>
       </class> <!-- userRegistrationTests.RegisterNewUserAndVerifyUserByLoging -->
     </classes>

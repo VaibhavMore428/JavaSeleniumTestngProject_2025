@@ -11,7 +11,7 @@ public class ConfigReader {
 					if(input ==null) {
 						throw new RuntimeException("Sorry, unable to find config.properties");
 					}
-					prop.load(input);
+					prop.load(input); 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
