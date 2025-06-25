@@ -12,7 +12,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import baseClass.BaseClass;
+import clientLoginTest.ClientLoginTest;
 import commonFunctions.CommonFunctions;
+import pageObjects.ClientLoginPage;
+import pageObjects.DashboardPage;
 import pageObjects.RegisterUserPage;
 import utilities.ConfigReader;
 import utilities.ExcelUtil;
@@ -34,13 +37,24 @@ public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
 		driver.get(ConfigReader.getProperty("url"));
 	}
 
-	@Test
+	@Test(dataProvider = "exceltestData")
 	public void RegisterAndVerifyNewUser(Map<String, String> testDataMap) throws InterruptedException {
 		RegisterUserPage rgstrUser = new RegisterUserPage(driver);
+		ClientLoginPage loginTest = new ClientLoginPage(driver);
+		DashboardPage dashboard = new DashboardPage(driver);
+
 		rgstrUser.gotoRegisterBtn();
 		CommonFunctions.registerUser(driver, testDataMap);
 		rgstrUser.RegisterUserbtnClick();
 
+		// Now verify newly added user is able to login
+		loginTest.clickOnLoginBtn();
+
+		loginTest.enterUsename(testDataMap.get("Email"));
+		loginTest.enterPassword(testDataMap.get("Password"));
+		loginTest.clickOnSubmitBtn();
+
+		Assert.assertEquals(dashboard.getHomePageText(), "Automation Practice", "Test failed");
 	}
 
 	@AfterTest

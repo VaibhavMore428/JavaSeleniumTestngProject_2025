@@ -2,27 +2,31 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-20T12:32:05 IST" name="Default suite" finished-at="2025-06-20T12:32:19 IST" duration-ms="14235">
+  <suite started-at="2025-06-25T10:33:53 IST" name="Default suite" finished-at="2025-06-25T10:34:05 IST" duration-ms="12064">
     <groups>
     </groups>
-    <test started-at="2025-06-20T12:32:05 IST" name="Default test" finished-at="2025-06-20T12:32:19 IST" duration-ms="14235">
-      <class name="userRegistrationTests.RegisterNewUserAndVerifyUserByLoging">
-        <test-method is-config="true" signature="setupMethod()[pri:0, instance:userRegistrationTests.RegisterNewUserAndVerifyUserByLoging@1cbbffcd]" started-at="2025-06-20T12:32:07 IST" name="setupMethod" finished-at="2025-06-20T12:32:14 IST" duration-ms="6885" status="PASS">
+    <test started-at="2025-06-25T10:33:53 IST" name="Default test" finished-at="2025-06-25T10:34:05 IST" duration-ms="12064">
+      <class name="userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin">
+        <test-method is-config="true" signature="setupMethod()[pri:0, instance:userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin@1afd44cb]" started-at="2025-06-25T10:33:54 IST" name="setupMethod" finished-at="2025-06-25T10:34:00 IST" duration-ms="5998" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupMethod -->
-        <test-method signature="VerifyUserALreadyExists(java.util.Map)[pri:0, instance:userRegistrationTests.RegisterNewUserAndVerifyUserByLoging@1cbbffcd]" started-at="2025-06-20T12:32:14 IST" name="VerifyUserALreadyExists" data-provider="exceltestData" finished-at="2025-06-20T12:32:19 IST" duration-ms="5483" status="PASS">
+        <test-method signature="RegisterAndVerifyNewUser(java.util.Map)[pri:0, instance:userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin@1afd44cb]" started-at="2025-06-25T10:34:00 IST" name="RegisterAndVerifyNewUser" data-provider="exceltestData" finished-at="2025-06-25T10:34:05 IST" duration-ms="4360" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{FirstName=Vaibhav, LastName=More, Email=vaibhav@example.com, Phone Number=9876543210, Occupation=Engineer, Gender=Male, Password=Pass@123, Confirm Password=Pass@123}]]>
+                <![CDATA[{FirstName=Vaibhav, LastName=otte, Email=user1750827834734@mail.com, Phone Number=7476543215, Occupation=Engineer, Gender=Male, Password=Pwd@0225, Confirm Password=Pass@1234}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyUserALreadyExists -->
-      </class> <!-- userRegistrationTests.RegisterNewUserAndVerifyUserByLoging -->
+        </test-method> <!-- RegisterAndVerifyNewUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin@1afd44cb]" started-at="2025-06-25T10:34:05 IST" name="tearDown" finished-at="2025-06-25T10:34:05 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

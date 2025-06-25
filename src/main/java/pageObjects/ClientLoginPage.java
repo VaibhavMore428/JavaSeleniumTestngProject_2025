@@ -5,16 +5,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtilities;
+
 public class ClientLoginPage {
 	WebDriver driver;
 	// https://rahulshettyacademy.com/client/auth/login
 	// anshika@gmail.com
 	// Iamking@000
 
+	
 	public ClientLoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	@FindBy(xpath="//button[@routerlink='/auth']") WebElement loginBtn;
 
 	@FindBy(xpath = "//input[@id='userEmail']")
 	WebElement usename;
@@ -36,4 +41,10 @@ public class ClientLoginPage {
 	public void clickOnSubmitBtn() {
 		submitbtn.click();
 	}
+	public void clickOnLoginBtn() {
+		WaitUtilities wu= new WaitUtilities();
+		wu.waitUntilElementToBeVisible(this.driver,loginBtn);
+		loginBtn.click();
+	}
+	
 }

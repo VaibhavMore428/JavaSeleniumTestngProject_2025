@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -20,7 +23,7 @@ public class ExcelUtil {
 		XSSFRow headerRow = sheet.getRow(0);
 		int totalrows = sheet.getLastRowNum();
 		int totalcols = headerRow.getLastCellNum();
-
+		DataFormatter formatter = new DataFormatter();
 		List<Object[]> testData = new ArrayList<Object[]>();
 
 		for (int i = 1; i <= totalrows; i++) {
@@ -28,9 +31,27 @@ public class ExcelUtil {
 			Map<String, String> datamap = new LinkedHashMap<String, String>();
 
 			for (int j = 0; j < totalcols; j++) {
-				String key = headerRow.getCell(j).toString();
-				String value = (row.getCell(j) == null) ? "" : row.getCell(j).toString();
-				datamap.put(key.trim(), value.trim());
+				String key = formatter.formatCellValue(headerRow.getCell(j)).trim();
+				Cell cell = (row == null) ? null : row.getCell(j);
+				String value = (cell == null) ? "" : formatter.formatCellValue(cell).trim();
+				// Inject dynamic data based on column key
+				switch (key.toLowerCase()) {
+				case "email":
+					value = RandomTestDataUtil.generateRandomEmail();
+					break;
+				case "name":
+					value = RandomTestDataUtil.generateRandomName();
+					break;
+				case "mobile":
+					value = RandomTestDataUtil.generateRandomMobile();
+					break;
+				case "password":
+					value = RandomTestDataUtil.generateRandomPassword();
+					break;
+				default:
+					// Keep value from Excel
+				}
+				datamap.put(key, value);
 			}
 			testData.add(new Object[] { datamap });
 		}
