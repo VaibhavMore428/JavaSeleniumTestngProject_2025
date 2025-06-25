@@ -12,13 +12,13 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import baseClass.BaseClass;
-import clientLoginTest.ClientLoginTest;
 import commonFunctions.CommonFunctions;
 import pageObjects.ClientLoginPage;
 import pageObjects.DashboardPage;
 import pageObjects.RegisterUserPage;
 import utilities.ConfigReader;
 import utilities.ExcelUtil;
+import utilities.ScreenshotUtilities;
 
 public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
 	WebDriver driver;
@@ -38,23 +38,28 @@ public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
 	}
 
 	@Test(dataProvider = "exceltestData")
-	public void RegisterAndVerifyNewUser(Map<String, String> testDataMap) throws InterruptedException {
+	public void RegisterAndVerifyNewUser(Map<String, String> testDataMap) throws InterruptedException, IOException {
 		RegisterUserPage rgstrUser = new RegisterUserPage(driver);
 		ClientLoginPage loginTest = new ClientLoginPage(driver);
 		DashboardPage dashboard = new DashboardPage(driver);
-
+		
+		ScreenshotUtilities.takeScreenshot(driver, "RegisterAndVerifyNewUser", "BeforeRegisterPage");
 		rgstrUser.gotoRegisterBtn();
 		CommonFunctions.registerUser(driver, testDataMap);
+		ScreenshotUtilities.takeScreenshot(driver, "RegisterAndVerifyNewUser", "UserEnteredDetailsOnRegisterPage");
 		rgstrUser.RegisterUserbtnClick();
 
 		// Now verify newly added user is able to login
+		ScreenshotUtilities.takeScreenshot(driver, "RegisterAndVerifyNewUser", "BeforeLoginPage");
 		loginTest.clickOnLoginBtn();
 
 		loginTest.enterUsename(testDataMap.get("Email"));
 		loginTest.enterPassword(testDataMap.get("Password"));
+		ScreenshotUtilities.takeScreenshot(driver, "RegisterAndVerifyNewUser", "LoginPageWithUserdetails");
 		loginTest.clickOnSubmitBtn();
 
-		Assert.assertEquals(dashboard.getHomePageText(), "Automation Practice", "Test failed");
+		Assert.assertEquals(dashboard.getHomePageText(), "Automation Practice", "Test failed=>Home page title is incorrect");
+		ScreenshotUtilities.takeScreenshot(driver, "RegisterAndVerifyNewUser", "OnHomePage");
 	}
 
 	@AfterTest

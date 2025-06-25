@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import pageObjects.ClientLoginPage;
 import utilities.BaseClass;
 import utilities.ConfigReader;
-import utilities.ScreenshotUtility;
+import utilities.ScreenshotUtilities;
 
 public class ClientLoginTest extends BaseClass  {
 	
@@ -27,8 +27,9 @@ public class ClientLoginTest extends BaseClass  {
 		
 		loginobj.enterUsename(ConfigReader.getProperty("username"));
 		loginobj.enterPassword(ConfigReader.getProperty("password"));
+		ScreenshotUtilities.takeScreenshot(driver,"loginTest","BeforeSubmit");
 		loginobj.clickOnSubmitBtn();
 		System.out.println("login test");
-		ScreenshotUtility.screenshotMethod(driver);
+
 	}
 }

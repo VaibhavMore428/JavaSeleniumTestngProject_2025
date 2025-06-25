@@ -27,4 +27,8 @@ public class BaseClass {
 
 		return driver;
 	}
+	 // ✅ Add this getter method
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
