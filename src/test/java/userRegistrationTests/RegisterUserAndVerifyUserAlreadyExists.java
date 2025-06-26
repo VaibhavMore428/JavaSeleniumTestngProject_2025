@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import baseClass.BaseClass;
@@ -16,9 +17,11 @@ import commonFunctions.CommonFunctions;
 import pageObjects.RegisterUserPage;
 import utilities.ConfigReader;
 import utilities.ExcelUtil;
+import utilities.ScreenshotListener;
+import utilities.ScreenshotUtilities;
 
+@Listeners(ScreenshotListener.class)
 public class RegisterUserAndVerifyUserAlreadyExists extends BaseClass {
-	WebDriver driver;
 
 	@DataProvider(name = "exceltestData")
 	public Iterator<Object[]> getExcelMapData() throws IOException {
@@ -36,16 +39,21 @@ public class RegisterUserAndVerifyUserAlreadyExists extends BaseClass {
 	}
 
 	@Test(dataProvider = "exceltestData")
-	public void VerifyUserALreadyExists(Map<String, String> testDataMap) throws InterruptedException {
+	public void VerifyUserALreadyExists(Map<String, String> testDataMap) throws InterruptedException, IOException {
 		RegisterUserPage rgstrUser = new RegisterUserPage(driver);
+		ScreenshotUtilities.takeScreenshot(driver, "VerifyUserALreadyExists", "BeforeRegisterPage");
 		rgstrUser.gotoRegisterBtn();
-		CommonFunctions.registerUser(driver, testDataMap);
+		CommonFunctions.registerUser(driver, testDataMap, "RegisterUserAndVerifyUserAlreadyExists");
+		ScreenshotUtilities.takeScreenshot(driver, "VerifyUserALreadyExists", "UserDetailsOnRegisterPage");
 		rgstrUser.RegisterUserbtnClick();
 		// anjali.sharma@example.com
 		// rohitv@example.com
 		// vaibhav@example.com
 		//
+		ScreenshotUtilities.takeScreenshot(driver, "VerifyUserALreadyExists", "AlreadyExistMessage");
+		Thread.sleep(1000);
 		Assert.assertEquals(rgstrUser.verfiyUserAlreadyRegistered(), "User already exisits with this Email Id!");
+		
 	}
 	@AfterTest
 	public void tearDown() {

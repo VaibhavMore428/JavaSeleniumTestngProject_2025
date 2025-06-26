@@ -20,4 +20,18 @@ public class CommonFunctions {
 				rgstrUser.selectOccupation(testDataMap.get("Occupation"));
 				rgstrUser.selectCheckBox18Year();
 			}
+			public static void registerUser(WebDriver driver, Map<String, String> testDataMap, String testName) {
+				// TODO Auto-generated method stub
+				if(testName.equals("RegisterUserAndVerifyUserAlreadyExists"));
+				RegisterUserPage rgstrUser = new RegisterUserPage(driver);
+				rgstrUser.enterFirstname("Rajesh");
+				rgstrUser.enterlastName("Gore");
+				rgstrUser.enteruserEmail("Rajesh@gmail.com");
+				rgstrUser.enterMobilenumber("8422334433");
+				rgstrUser.enterpassword("Rajesh@2345");
+				rgstrUser.enterConfirmPassword("Rajesh@2345");
+				rgstrUser.selectGender("Male");
+				rgstrUser.selectOccupation("Doctor");
+				rgstrUser.selectCheckBox18Year();
+			}
 }

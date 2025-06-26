@@ -25,4 +25,9 @@ public class BaseClass {
 
 		return driver;
 	}
+
+	public WebDriver getDriver() {
+		// TODO Auto-generated method stub
+		return driver;
+	}
 }

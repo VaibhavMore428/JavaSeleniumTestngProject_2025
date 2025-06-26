@@ -11,13 +11,23 @@ public class ScreenshotListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		Object testClass = result.getInstance();
-		WebDriver driver = ((BaseClass) testClass).getDriver(); // Replace with your actual base class
-		String testCaseName = result.getName(); // test method name
-		try {
-			ScreenshotUtilities.takeScreenshot(driver, testCaseName, "Failure");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		System.out.println("Test failed for: " + result.getName());
+		System.out.println("testClass actual type: " + testClass.getClass().getName());
+
+		if (testClass instanceof baseClass.BaseClass) {
+			WebDriver driver = ((baseClass.BaseClass) testClass).getDriver();
+			if (driver != null) {
+				try {
+					ScreenshotUtilities.takeScreenshot(driver, result.getName(), "TestFailureScreenShot");
+					System.out.println("Screenshot captured for: " + result.getName());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} else {
+				System.out.println("WebDriver is null. Screenshot not taken.");
+			}
+		} else {
+			System.out.println("testClass is NOT an instance of BaseClass.");
 		}
 	}
 }

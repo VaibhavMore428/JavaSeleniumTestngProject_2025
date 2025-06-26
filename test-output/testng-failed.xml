@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin">
+      <class name="userRegistrationTests.RegisterUserAndVerifyUserAlreadyExists">
         <methods>
-          <include name="RegisterAndVerifyNewUser" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="VerifyUserALreadyExists" invocation-numbers="0"/>
           <include name="setupMethod"/>
         </methods>
-      </class> <!-- userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin -->
+      </class> <!-- userRegistrationTests.RegisterUserAndVerifyUserAlreadyExists -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

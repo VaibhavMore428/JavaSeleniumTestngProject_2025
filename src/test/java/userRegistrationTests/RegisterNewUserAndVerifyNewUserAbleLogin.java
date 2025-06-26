@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import baseClass.BaseClass;
@@ -18,10 +19,12 @@ import pageObjects.DashboardPage;
 import pageObjects.RegisterUserPage;
 import utilities.ConfigReader;
 import utilities.ExcelUtil;
+import utilities.ScreenshotListener;
 import utilities.ScreenshotUtilities;
 
+@Listeners(ScreenshotListener.class)
 public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
-	WebDriver driver;
+
 
 	@DataProvider(name = "exceltestData")
 	public Iterator<Object[]> getExcelMapData() throws IOException {
