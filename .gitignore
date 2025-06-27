@@ -11,3 +11,6 @@
 
 # Ignore reports folder
 /reports/
+
+# Ignore logs folder
+/logs/

@@ -19,7 +19,8 @@ public class ScreenshotUtilities {
 	private static final String BASE_FOLDER = "./screenshots/";
 	private static Map<String, String> testFolders = new HashMap<String, String>();
 
-	public static String takeScreenshot(WebDriver driver, String testCaseName, String screenshotName) throws IOException {
+	public static String takeScreenshot(WebDriver driver, String testCaseName, String screenshotName)
+			throws IOException {
 
 		String folderPath = testFolders.computeIfAbsent(testCaseName, k -> {
 			String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());

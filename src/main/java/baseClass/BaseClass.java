@@ -5,12 +5,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.Log;
 
 public class BaseClass {
 	public WebDriver driver;
 
 	public WebDriver InitiateWebDriver(String browserName) {
-
+		Log.info("Initializing Chrome browser and navigating to URL");
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();

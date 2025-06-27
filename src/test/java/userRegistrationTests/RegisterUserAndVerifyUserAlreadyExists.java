@@ -15,11 +15,12 @@ import commonFunctions.CommonFunctions;
 import pageObjects.RegisterUserPage;
 import utilities.ConfigReader;
 import utilities.ExcelUtil;
+import utilities.Log;
 import utilities.ScreenshotListener;
 import utilities.ScreenshotUtilities;
 import utilities.TestListeners;
 
-@Listeners({ScreenshotListener.class,TestListeners.class})
+@Listeners({ ScreenshotListener.class, TestListeners.class })
 public class RegisterUserAndVerifyUserAlreadyExists extends BaseClass {
 
 	@DataProvider(name = "exceltestData")
@@ -40,22 +41,25 @@ public class RegisterUserAndVerifyUserAlreadyExists extends BaseClass {
 	@Test(dataProvider = "exceltestData")
 	public void VerifyUserALreadyExists(Map<String, String> testDataMap) throws InterruptedException, IOException {
 		RegisterUserPage rgstrUser = new RegisterUserPage(driver);
+		Log.info("===== Starting test: VerifyUserALreadyExists =====");
+		Log.info("Navigating to Register page");
 		ScreenshotUtilities.takeScreenshot(driver, "VerifyUserALreadyExists", "BeforeRegisterPage");
 		rgstrUser.gotoRegisterBtn();
+		Log.info("Filling registration form with data: " + testDataMap.toString());
 		CommonFunctions.registerUser(driver, testDataMap, "RegisterUserAndVerifyUserAlreadyExists");
 		ScreenshotUtilities.takeScreenshot(driver, "VerifyUserALreadyExists", "UserDetailsOnRegisterPage");
+		Log.info("Submitting registration form");
 		rgstrUser.RegisterUserbtnClick();
-		// anjali.sharma@example.com
-		// rohitv@example.com
-		// vaibhav@example.com
-		//
-		ScreenshotUtilities.takeScreenshot(driver, "VerifyUserALreadyExists", "AlreadyExistMessage");
-		Thread.sleep(1000);
+
 		Assert.assertEquals(rgstrUser.verfiyUserAlreadyRegistered(), "User already exisits with this Email Id!");
-		
+		ScreenshotUtilities.takeScreenshot(driver, "VerifyUserALreadyExists", "AlreadyExistMessage");
+		Log.info("Verifying User already exists or not");
+
 	}
+
 	@AfterTest
 	public void tearDown() {
+		Log.info("Closing browser after text execution");
 		driver.quit();
 	}
 }

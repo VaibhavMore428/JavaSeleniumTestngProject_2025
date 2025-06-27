@@ -3,8 +3,6 @@ package userRegistrationTests;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
-
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -38,7 +36,6 @@ public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
 
 	@BeforeMethod
 	public void setupMethod() {
-		  Log.info("Initializing Chrome browser and navigating to URL");
 		driver = InitiateWebDriver("chrome");
 		driver.get(ConfigReader.getProperty("url"));
 	}
@@ -79,7 +76,7 @@ public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
 
 	@AfterTest
 	public void tearDown() {
-	    Log.info("Closing browser after test execution");
+		Log.info("Closing browser after test execution");
 		driver.quit();
 	}
 }
