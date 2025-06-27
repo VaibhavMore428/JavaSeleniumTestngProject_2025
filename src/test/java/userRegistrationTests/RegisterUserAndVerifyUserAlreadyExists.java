@@ -3,8 +3,6 @@ package userRegistrationTests;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
-
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -19,8 +17,9 @@ import utilities.ConfigReader;
 import utilities.ExcelUtil;
 import utilities.ScreenshotListener;
 import utilities.ScreenshotUtilities;
+import utilities.TestListeners;
 
-@Listeners(ScreenshotListener.class)
+@Listeners({ScreenshotListener.class,TestListeners.class})
 public class RegisterUserAndVerifyUserAlreadyExists extends BaseClass {
 
 	@DataProvider(name = "exceltestData")

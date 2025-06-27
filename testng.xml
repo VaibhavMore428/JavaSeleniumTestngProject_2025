@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="RegisterTestSuite">
+<listeners>
+    <listener class-name="utilities.ScreenshotListener"/>
+    <listener class-name="utilities.TestListeners"/>
+  </listeners>
+
+  <test thread-count="5" name="TestSuite">
+    <classes>
+      <class name="userRegistrationTests.RegisterNewUserAndVerifyNewUserAbleLogin"/>
+      <class name="userRegistrationTests.RegisterUserAndVerifyUserAlreadyExists"/>
+    </classes>
+  </test> <!-- TestSuite -->
+</suite> <!-- RegisterTestSuite -->

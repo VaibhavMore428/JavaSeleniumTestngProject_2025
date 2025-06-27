@@ -1,0 +1,13 @@
+# .gitignore
+
+# Ignore screenshot folder
+/screenshots/
+
+# Ignore Maven target folder
+/target/
+
+# Ignore TestNG test-output folder
+/test-output/
+
+# Ignore reports folder
+/reports/

@@ -1,0 +1,26 @@
+2025-06-27 10:32:22 [main] INFO  utilities.Log - ===== Starting test: RegisterAndVerifyNewUser =====
+2025-06-27 10:32:22 [main] INFO  utilities.Log - Navigating to Register page
+2025-06-27 10:32:24 [main] INFO  utilities.Log - Filling registration form with data: {FirstName=Vaibhav, LastName=otte, Email=user1751000531178@mail.com, Phone Number=7476543215, Occupation=Engineer, Gender=Male, Password=Pwd@0961, Confirm Password=Pass@1234}
+2025-06-27 10:32:27 [main] INFO  utilities.Log - Submitting registration form
+2025-06-27 10:32:27 [main] INFO  utilities.Log - Navigating to Login page
+2025-06-27 10:32:29 [main] INFO  utilities.Log - Entering login credentials: user1751000531178@mail.com
+2025-06-27 10:32:32 [main] INFO  utilities.Log - Clicking on Submit button
+2025-06-27 10:32:32 [main] INFO  utilities.Log - Verifying homepage text
+2025-06-27 10:32:33 [main] INFO  utilities.Log - Test completed: User registration and login successful
+2025-06-27 10:44:04 [main] INFO  utilities.Log - Initializing Chrome browser and navigating to URL
+2025-06-27 10:44:04 [main] INFO  utilities.Log - === Test Started: RegisterAndVerifyNewUser ===
+2025-06-27 10:44:04 [main] WARN  utilities.Log - Test skipped: RegisterAndVerifyNewUser
+2025-06-27 10:44:05 [main] INFO  utilities.Log - === Test Suite Finished ===
+2025-06-27 10:46:10 [main] INFO  utilities.Log - Initializing Chrome browser and navigating to URL
+2025-06-27 10:46:16 [main] INFO  utilities.Log - === Test Started: RegisterAndVerifyNewUser ===
+2025-06-27 10:46:16 [main] INFO  utilities.Log - ===== Starting test: RegisterAndVerifyNewUser =====
+2025-06-27 10:46:16 [main] INFO  utilities.Log - Navigating to Register page
+2025-06-27 10:46:17 [main] INFO  utilities.Log - Filling registration form with data: {FirstName=Vaibhav, LastName=otte, Email=user1751001370024@mail.com, Phone Number=7476543215, Occupation=Engineer, Gender=Male, Password=Pwd@0434, Confirm Password=Pass@1234}
+2025-06-27 10:46:20 [main] INFO  utilities.Log - Submitting registration form
+2025-06-27 10:46:21 [main] INFO  utilities.Log - Navigating to Login page
+2025-06-27 10:46:22 [main] INFO  utilities.Log - Entering login credentials: user1751001370024@mail.com
+2025-06-27 10:46:24 [main] INFO  utilities.Log - Clicking on Submit button
+2025-06-27 10:46:24 [main] INFO  utilities.Log - Verifying homepage text
+2025-06-27 10:46:25 [main] INFO  utilities.Log - Test completed: User registration and login successful
+2025-06-27 10:46:25 [main] INFO  utilities.Log - Closing browser after test execution
+2025-06-27 10:46:32 [main] INFO  utilities.Log - === Test Suite Finished ===
