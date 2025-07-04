@@ -5,24 +5,25 @@ import java.util.Iterator;
 import java.util.Map;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import baseClass.BaseClass;
+import utilities.BaseClass;
 import commonFunctions.CommonFunctions;
 import pageObjects.ClientLoginPage;
 import pageObjects.DashboardPage;
 import pageObjects.RegisterUserPage;
 import utilities.ConfigReader;
 import utilities.ExcelUtil;
-import utilities.ScreenshotListener;
 import utilities.ScreenshotUtilities;
 import utilities.TestListeners;
 import utilities.Log;
 
-@Listeners({ ScreenshotListener.class, TestListeners.class })
+@Listeners( TestListeners.class )
 
 public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
 
@@ -33,10 +34,11 @@ public class RegisterNewUserAndVerifyNewUserAbleLogin extends BaseClass {
 		String filePath = projectDir + "/src/main/resources/testdata.xlsx";
 		return ExcelUtil.getTestDataAsMap(filePath, "NewUserRegister").iterator();
 	}
-
-	@BeforeMethod
-	public void setupMethod() {
-		driver = InitiateWebDriver("chrome");
+	
+	@Parameters("browser")
+	@BeforeTest
+	public void setupMethod(@Optional("chrome")String browser) {
+		driver = InitiateWebDriver(browser);
 		driver.get(ConfigReader.getProperty("url"));
 	}
 

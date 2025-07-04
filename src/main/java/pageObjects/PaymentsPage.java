@@ -43,10 +43,8 @@ public class PaymentsPage {
 		for (WebElement country : countryList) {
 			String matchedCountry = country.getText().trim();
 			if (matchedCountry.equals(countryName)) {
-				System.out.println("country.getText()= " + country.getText());
 				wait.until(ExpectedConditions.elementToBeClickable(country));
 				country.click();
-				System.out.println("insdieee");
 				break;
 			}
 		}

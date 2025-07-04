@@ -1,9 +1,13 @@
 package pageObjects;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import utilities.ConfigReader;
 import utilities.WaitUtilities;
@@ -47,6 +51,8 @@ public class ClientLoginPage {
 	}
 
 	public void loginMethod() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+		wait.until(ExpectedConditions.visibilityOf(usename));
 		usename.sendKeys(ConfigReader.getProperty("username"));
 		password.sendKeys(ConfigReader.getProperty("password"));
 		submitbtn.click();

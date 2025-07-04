@@ -4,20 +4,17 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Listeners;
-
-@Listeners(ScreenshotListener.class)
 
 public class ScreenshotUtilities {
 	private static final String BASE_FOLDER = "./screenshots/";
-	private static Map<String, String> testFolders = new HashMap<String, String>();
+	private static Map<String, String> testFolders = new ConcurrentHashMap<String, String>();
 
 	public static String takeScreenshot(WebDriver driver, String testCaseName, String screenshotName)
 			throws IOException {

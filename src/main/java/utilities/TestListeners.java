@@ -98,8 +98,7 @@ public class TestListeners implements ITestListener {
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
 		extent.flush();
-		System.out.println("Extent Report initialized");
-		System.out.println("Flushing report...");
+		System.out.println("Extent report generated...");
 		utilities.Log.info("=== Test Suite Finished ===");
 	}
 
